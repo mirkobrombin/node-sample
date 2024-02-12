@@ -1,0 +1,14 @@
+{
+    "name": "my-awesome-project",
+    "version": "1.0.0",
+    "description": "A simple Node.js project to test Docker configuration",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js",
+      "build": "echo 'Build script executed.'"
+    },
+    "dependencies": {
+      "express": "^4.17.1"
+    }
+  }
+  
