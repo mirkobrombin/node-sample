@@ -1,0 +1,22 @@
+base: node:current-slim
+labels:
+  maintainer: My Awesome Team
+args:
+  DEBIAN_FRONTEND: noninteractive
+expose: 3000
+entrypoint: ["node", "/app/app.js"]
+runs:
+  - echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/01norecommends
+modules:
+  - name: build-app
+    type: shell
+    source:
+      type: git
+      url: https://github.com/mirkobrombin/node-sample
+      branch: main
+      commit: latest
+    commands:
+      - mv /sources/build-app /app
+      - cd /app
+      - npm i
+      - npm run build
